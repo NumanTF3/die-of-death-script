@@ -9,6 +9,7 @@ Function List Begins NOW!
 
 -- assets manager
 
+getgenv().dodnhPremium = true
 
 if makefolder and isfolder and writefile and isfile then
 if not isfolder("dodnexerhub") then
@@ -18,7 +19,7 @@ if not isfolder("dodnexerhub/music") then
 makefolder("dodnexerhub/music")
 end
 if not isfile("dodnexerhub/music/subject.mp3") then
-writefile("dodnexerhub/music/subject.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/lost_rift(subject).mp3"))
+writefile("dodnexerhub/music/subject.mp3", game:HttpGet("https://NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/lost_rift(subject).mp3"))
 end
 if not isfile("dodnexerhub/music/idiotware.mp3") then
 writefile("dodnexerhub/music/idiotware.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Idiotware.mp3"))
@@ -1647,10 +1648,7 @@ return tostring(product_price)
 end
 
 function HavePremium()
-if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(game:GetService("Players").LocalPlayer.UserId, 1264479709) or CheckIfUserInGroup() == true or getgenv().dodnhPremium == true then
-return true
-end
-return false
+	return true
 end
 
 function OpenLink(link)
@@ -1681,15 +1679,15 @@ PremiumFeatures:CreateLabel("")
 PremiumFeatures:CreateLabel("Buy gamepass to unlock premium features! [ Cost "..pprice.." robux ]")
 
 PremiumFeatures:CreateButton({Name = "Open Gamepass Link"; Callback = function()
-if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(game:GetService("Players").LocalPlayer.UserId, 1264479709) then
-    Notify("Error!", "Arleady have gamepass!", 4)
+if true then
+    Notify("Error!", "Already have gamepass!", 4)
 else
     OpenLink("https://www.roblox.com/game-pass/1264479709")
 end
 end; })
 
 PremiumFeatures:CreateButton({Name = "Copy Gamepass Link"; Callback = function()
-if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(game:GetService("Players").LocalPlayer.UserId, 1264479709) then
+if true then
     Notify("Error!", "Arleady have gamepass!", 4)
 else
     setclipboard(tostring("https://www.roblox.com/game-pass/1264479709"))
@@ -1700,7 +1698,7 @@ end; })
 PremiumFeatures:CreateLabel("or join our roblox group to unlock premium features!")
 
 PremiumFeatures:CreateButton({Name = "Open Group Link"; Callback = function()
-if CheckIfUserInGroup() == true then
+if true then
     Notify("Error!", "Arleady joined group!", 4)
 else
     OpenLink("https://www.roblox.com/communities/35649714/my-group-nexer1234#!/about")
@@ -1708,7 +1706,7 @@ end
 end; })
 
 PremiumFeatures:CreateButton({Name = "Copy Group Link"; Callback = function()
-if CheckIfUserInGroup() == true then
+if true then
     Notify("Error!", "Arleady joined group!", 4)
 else
     setclipboard(tostring("https://www.roblox.com/communities/35649714/my-group-nexer1234#!/about"))
@@ -1728,10 +1726,10 @@ preferedkillingmethod = TableFirstElementToString(Value)
 end; })
 
 PremiumFeatures:CreateButton({Name = "Insta-Kill Killer"; Callback = function()
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
+	if HavePremium() ~= true then
+		ErrorPremium()
+		return nil
+	end
 
 local function checkifgotflingedlol(hrp)
     local velocity = hrp.Velocity
@@ -3431,6 +3429,7 @@ target_char.HumanoidRootPart["Stalk3"].SoundId = suit.HumanoidRootPart["Stalk3"]
 target_char.HumanoidRootPart["Stalk4"].SoundId = suit.HumanoidRootPart["Stalk4"].SoundId
 end
 
+--[[
 local function onChattedCMDS(message)
     pcall(function()
     if message:match("-! inject (%a+)") then
@@ -3535,6 +3534,7 @@ end
 	end
     elseif message:match("-! setanim (%a+)") then
 	if console_injected ~= true then return nil end
+--]]
 local target_anim = message:match("-! setanim (%a+)")
 pcall(function()
 for i,v in pairs(game:GetService("ReplicatedStorage"):WaitForChild("Characters"):WaitForChild("Killer"):GetChildren()) do if v then
@@ -3552,6 +3552,7 @@ end)
     end)
 end
 
+--[[
 if getgenv().avrgcmdsactivated == true then
 --nothing
 else
@@ -3568,6 +3569,7 @@ v.Chatted:Connect(onChattedCMDS)
 end
 end)
 end
+--]]
 
 
 
@@ -4003,6 +4005,7 @@ end
 
 local ChoosenKiller = "Devesto"
 local ChoosenTargettingTime = 20
+--[[ -- sigh, no script maker should add this feature to troll their users.
 local function onChattedTROLLCMDS(message)
 pcall(function()
 if message:match("-! ck (%a+)") then
@@ -4084,7 +4087,9 @@ end
 end
 end)
 end
+-]]
 
+--[[ -- adding features only you can access to fuck other script users is crazy lol
 if getgenv().trollcmdsactivated == true then
 --nothing
 else
@@ -4100,6 +4105,7 @@ v.Chatted:Connect(onChattedTROLLCMDS)
 end
 end)
 end
+--]]
 
 function getping()
     return math.round(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue())
@@ -4112,11 +4118,12 @@ function getexecutor()
     end
     return ex
 end
-
-function getwebhook()
-    local webhook = loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro666Pro/OpenSourceScripts/refs/heads/main/Forsaken/Http/Webhook.dll'))()
+--[[
+funtion getwebhook()
+    local webhook = nil -- fucktard nexer added a webhook to log ur usernames lmao :sob: ts so sad
     return webhook
 end
+--]]
 
 function getdevice()
     local dev = "Unknown"
@@ -4136,12 +4143,12 @@ end
 
 -- Credits to @shmasocoolio from scriptblox! (https://www.scriptblox.com/u/shmasocoolio)
 
-Notify("Success!", "Nexer Hub:DOD Loaded!", 4, true)
+Notify("Success!", "Nexer Hub:DOD Loaded! modified by NumanTF2 to remove the shitty webhook logging", 6, true)
 
 if getgenv().loadedflip_dod == true then
 
--- Yes, i do receive message that you executed my script, only because i join y'all sometimes!
-pcall(function()
+-- Yes, i do receive message that you executed my script, only because i join y'all sometimes! -- comment from Numan: hmmmm... why though? i thought the whole point of scripts was to exploit without getting caught. this is so braindead vro
+--[[pcall(function()
 req = request or http_request or HttpPost or (syn and syn.request) or (http and http.request) or (fluxus and fluxus.request) or (game and game.HttpPost) or (KRNL and KRNL.request) or (Xeno and Xeno.request) or (roblox and roblox.request) or (rbx and rbx.request)
 if req then
 local data = {
@@ -4171,6 +4178,7 @@ end)
 
 return nil
 end
+--]]
 
 if not getgenv().loadedflip_dod then
 getgenv().loadedflip_dod = true
@@ -4269,33 +4277,35 @@ sausageHolder.Size = sSize
 buttonFrame.Position = UDim2.new(0, sausageHolder.Size.X.Offset - 48, 0, 0)
 
 -- Yes, i do receive message that you executed my script, only because i join y'all sometimes!
+--[[
 pcall(function()
-req = request or http_request or HttpPost or (syn and syn.request) or (http and http.request) or (fluxus and fluxus.request) or (game and game.HttpPost) or (KRNL and KRNL.request) or (Xeno and Xeno.request) or (roblox and roblox.request) or (rbx and rbx.request)
-if req then
-local data = {
-    ["username"] = "Execution Bot",
-    ["avatar_url"] = "https://i.imgur.com/a/SbPHgnH",
-    ["content"] = "@everyone "..LP.Name.." executed DoD Nexer Hub YIPEEE",
-    ["embeds"] = {
-       {
-           ["title"] = "General Info",
-           ["description"] = "Username: "..LP.Name..". Device: "..getdevice()..". Ping: "..getping()..". Executor: "..getexecutor()..". Roblox Profile: [Click](https://www.roblox.com/users/"..LP.UserId.."/profile)",    
-           ["type"] = "rich",
-           ["color"] = 1000000,
-           ["footer"] = {
-             ["text"] = ""..game.JobId.."",
-           },
-       },
-   }
-}
-local url = getwebhook()
-local datab = game:GetService("HttpService"):JSONEncode(data)
-local head = {
-    ["content-type"] = "application/json"
-}
-req({Url = url, Body = datab, Method = "POST", Headers = head})
-end
+	req = request or http_request or HttpPost or (syn and syn.request) or (http and http.request) or (fluxus and fluxus.request) or (game and game.HttpPost) or (KRNL and KRNL.request) or (Xeno and Xeno.request) or (roblox and roblox.request) or (rbx and rbx.request)
+	if req then
+		local data = {
+    		["username"] = "Execution Bot",
+    		["avatar_url"] = "https://i.imgur.com/a/SbPHgnH",
+    		["content"] = "@everyone "..LP.Name.." executed DoD Nexer Hub YIPEEE",
+    		["embeds"] = {
+    		   {
+        		   ["title"] = "General Info",
+        		   ["description"] = "Username: "..LP.Name..". Device: "..getdevice()..". Ping: "..getping()..". Executor: "..getexecutor()..". Roblox Profile: [Click](https://www.roblox.com/users/"..LP.UserId.."/profile)",    
+        		   ["type"] = "rich",
+        		   ["color"] = 1000000,
+        		   ["footer"] = {
+        		     ["text"] = ""..game.JobId.."",
+        	   		},
+       			},
+  	 		}
+		}	
+	local url = getwebhook()
+	local datab = game:GetService("HttpService"):JSONEncode(data)
+	local head = {
+	    ["content-type"] = "application/json"
+	}
+	req({Url = url, Body = datab, Method = "POST", Headers = head})
+	end
 end)
+--]]
 
 task.delay(0, function()
 task.spawn(function()
