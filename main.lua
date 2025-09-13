@@ -1,5 +1,5 @@
 local ScriptLaunched, ScriptError = pcall(function()
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/nexeralt/Die-Of-Death/refs/heads/main/main.lua"))()
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/main.lua"))()
 
 --[[
 
@@ -18,19 +18,19 @@ if not isfolder("dodnexerhub/music") then
 makefolder("dodnexerhub/music")
 end
 if not isfile("dodnexerhub/music/subject.mp3") then
-writefile("dodnexerhub/music/subject.mp3", game:HttpGet("https://raw.githubusercontent.com/nexeralt/Die-Of-Death/refs/heads/main/Assets/ChaseThemes/lost_rift(subject).mp3"))
+writefile("dodnexerhub/music/subject.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/lost_rift(subject).mp3"))
 end
 if not isfile("dodnexerhub/music/idiotware.mp3") then
-writefile("dodnexerhub/music/idiotware.mp3", game:HttpGet("https://raw.githubusercontent.com/nexeralt/Die-Of-Death/refs/heads/main/Assets/ChaseThemes/Idiotware.mp3"))
+writefile("dodnexerhub/music/idiotware.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Idiotware.mp3"))
 end
 if not isfile("dodnexerhub/music/lmssubject.mp3") then
-writefile("dodnexerhub/music/lmssubject.mp3", game:HttpGet("https://raw.githubusercontent.com/nexeralt/Die-Of-Death/refs/heads/main/Assets/LMS/subjectlms.mp3"))
+writefile("dodnexerhub/music/lmssubject.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/LMS/subjectlms.mp3"))
 end
 if not isfile("dodnexerhub/music/snowie_new.mp3") then
-writefile("dodnexerhub/music/snowie_new.mp3", game:HttpGet("https://raw.githubusercontent.com/nexeralt/Die-Of-Death/refs/heads/main/Assets/ChaseThemes/Unknown%20Theme%20-%20Die%20of%20Death%20UST.mp3"))
+writefile("dodnexerhub/music/snowie_new.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Unknown%20Theme%20-%20Die%20of%20Death%20UST.mp3"))
 end
 if not isfile("dodnexerhub/music/mequot.mp3") then
-writefile("dodnexerhub/music/mequot.mp3", game:HttpGet("https://raw.githubusercontent.com/nexeralt/Die-Of-Death/refs/heads/main/Assets/ChaseThemes/Insanely%20(MeQuot's%20Theme)%20-%20Bubswest%20Remix.mp3"))
+writefile("dodnexerhub/music/mequot.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Insanely%20(MeQuot's%20Theme)%20-%20Bubswest%20Remix.mp3"))
 end
 end
 
@@ -140,7 +140,7 @@ Notify("Error!", "Your executor doesn't support ''firesignal'' function which is
 end
 
 pcall(function()
-WebHandler = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pro666Pro/CustomFunctions/refs/heads/main/funcs.txt"))()
+WebHandler = loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/funcs.txt"))()
 end)
 
 pcall(function()
