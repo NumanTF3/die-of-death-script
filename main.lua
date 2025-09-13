@@ -1,38 +1,29 @@
-local ScriptLaunched, ScriptError = pcall(function()
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/main.lua"))()
-
---[[
-
-Function List Begins NOW!
-
-]]--
-
 -- assets manager
 
 getgenv().dodnhPremium = true
 
 if makefolder and isfolder and writefile and isfile then
-if not isfolder("dodnexerhub") then
-makefolder("dodnexerhub")
-end
-if not isfolder("dodnexerhub/music") then
-makefolder("dodnexerhub/music")
-end
-if not isfile("dodnexerhub/music/subject.mp3") then
-writefile("dodnexerhub/music/subject.mp3", game:HttpGet("https://NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/lost_rift(subject).mp3"))
-end
-if not isfile("dodnexerhub/music/idiotware.mp3") then
-writefile("dodnexerhub/music/idiotware.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Idiotware.mp3"))
-end
-if not isfile("dodnexerhub/music/lmssubject.mp3") then
-writefile("dodnexerhub/music/lmssubject.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/LMS/subjectlms.mp3"))
-end
-if not isfile("dodnexerhub/music/snowie_new.mp3") then
-writefile("dodnexerhub/music/snowie_new.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Unknown%20Theme%20-%20Die%20of%20Death%20UST.mp3"))
-end
-if not isfile("dodnexerhub/music/mequot.mp3") then
-writefile("dodnexerhub/music/mequot.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Insanely%20(MeQuot's%20Theme)%20-%20Bubswest%20Remix.mp3"))
-end
+    if not isfolder("dodnexerhub") then
+        makefolder("dodnexerhub")
+    end
+    if not isfolder("dodnexerhub/music") then
+        makefolder("dodnexerhub/music")
+    end
+    if not isfile("dodnexerhub/music/subject.mp3") then
+        writefile("dodnexerhub/music/subject.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/lost_rift(subject).mp3"))
+    end
+    if not isfile("dodnexerhub/music/idiotware.mp3") then
+        writefile("dodnexerhub/music/idiotware.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Idiotware.mp3"))
+    end
+    if not isfile("dodnexerhub/music/lmssubject.mp3") then
+        writefile("dodnexerhub/music/lmssubject.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/LMS/subjectlms.mp3"))
+    end
+    if not isfile("dodnexerhub/music/snowie_new.mp3") then
+        writefile("dodnexerhub/music/snowie_new.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Unknown%20Theme%20-%20Die%20of%20Death%20UST.mp3"))
+    end
+    if not isfile("dodnexerhub/music/mequot.mp3") then
+        writefile("dodnexerhub/music/mequot.mp3", game:HttpGet("https://raw.githubusercontent.com/NumanTF3/die-of-death-script/refs/heads/main/Assets/ChaseThemes/Insanely%20(MeQuot's%20Theme)%20-%20Bubswest%20Remix.mp3"))
+    end
 end
 
 function getplrspeed(plr)
@@ -227,7 +218,7 @@ Window = Rayfield:CreateWindow({
    Name = "Nexer Hub - DoD",
    Icon = 0,    
    LoadingTitle = "Nexer Hub",
-   LoadingSubtitle = "by nexer",
+   LoadingSubtitle = "by nexer, patched by Numan",
    Theme = "Ocean",
    DisableRayfieldPrompts = true,
    DisableBuildWarnings = true,
@@ -3537,21 +3528,29 @@ end
 --]]
 local target_anim = message:match("-! setanim (%a+)")
 pcall(function()
-for i,v in pairs(game:GetService("ReplicatedStorage"):WaitForChild("Characters"):WaitForChild("Killer"):GetChildren()) do if v then
-for _,e in pairs(v:GetChildren()) do if e and e:FindFirstChild("Animations") and e.Name == target_anim or e.Name:match(target_anim) then
-local RunAnim = e:WaitForChild("Animations"):WaitForChild("Sprint").AnimationId or e:WaitForChild("Animations"):WaitForChild("OldSprint").AnimationId or e:WaitForChild("Animations"):WaitForChild("NormalSprint").AnimationId or e:WaitForChild("Animations"):WaitForChild("HurtSprint").AnimationId
-local WalkAnim = e:WaitForChild("Animations"):WaitForChild("Walk").AnimationId or e:WaitForChild("Animations"):WaitForChild("OldWalk").AnimationId
-local IdleAnim = e:WaitForChild("Animations"):WaitForChild("Idle").AnimationId or e:WaitForChild("Animations"):WaitForChild("OldIdle").AnimationId
-task.spawn(function()
-SetAnim(RunAnim, WalkAnim, IdleAnim)
-end)
-end; end
-end; end
-end)
+    for i,v in pairs(game:GetService("Workspace"):WaitForChild("GameAssets"):WaitForChild("Teams"):WaitForChild("Other"):GetDescendants()) do
+        if v then
+            for _,e in pairs(v:GetChildren()) do
+                if e and e:FindFirstChild("Animations") and (e.Name == target_anim or e.Name:match(target_anim)) then
+                    local RunAnim = e:WaitForChild("Animations"):WaitForChild("Sprint").AnimationId 
+                        or e:WaitForChild("Animations"):WaitForChild("OldSprint").AnimationId 
+                        or e:WaitForChild("Animations"):WaitForChild("NormalSprint").AnimationId 
+                        or e:WaitForChild("Animations"):WaitForChild("HurtSprint").AnimationId
+                    
+                    local WalkAnim = e:WaitForChild("Animations"):WaitForChild("Walk").AnimationId 
+                        or e:WaitForChild("Animations"):WaitForChild("OldWalk").AnimationId
+                    
+                    local IdleAnim = e:WaitForChild("Animations"):WaitForChild("Idle").AnimationId 
+                        or e:WaitForChild("Animations"):WaitForChild("OldIdle").AnimationId
+                end
+            end
+        end
     end
-    end)
-end
+end)
 
+task.spawn(function()
+	SetAnim(RunAnim, WalkAnim, IdleAnim)
+end)
 --[[
 if getgenv().avrgcmdsactivated == true then
 --nothing
@@ -4181,7 +4180,8 @@ end
 --]]
 
 if not getgenv().loadedflip_dod then
-getgenv().loadedflip_dod = true
+	getgenv().loadedflip_dod = true
+end
 local sausageHolder = game.CoreGui.TopBarApp.TopBarApp.UnibarLeftFrame.UnibarMenu["2"]
 local originalSize = sausageHolder.Size.X.Offset
 local sSize = UDim2.new(0, originalSize + 48, 0, sausageHolder.Size.Y.Offset)
@@ -4270,11 +4270,8 @@ function FortniteFlips()
 			FlipCooldown = false
 		end)
 	end
-
+end
 imageButton.Activated:Connect(FortniteFlips)
-
-sausageHolder.Size = sSize
-buttonFrame.Position = UDim2.new(0, sausageHolder.Size.X.Offset - 48, 0, 0)
 
 -- Yes, i do receive message that you executed my script, only because i join y'all sometimes!
 --[[
@@ -4306,20 +4303,11 @@ pcall(function()
 	end
 end)
 --]]
-
 task.delay(0, function()
-task.spawn(function()
-while task.wait(0.0003) do
-sausageHolder.Size = sSize
-buttonFrame.Position = UDim2.new(0, sausageHolder.Size.X.Offset - 48, 0, 0)
-end
-end)
-end)
-
-end
-end)
-if not ScriptLaunched then
-print(ScriptError)
-warn(ScriptError)
-error(ScriptError)
-end
+    task.spawn(function()
+        while task.wait(0.0003) do
+            sausageHolder.Size = sSize
+            buttonFrame.Position = UDim2.new(0, sausageHolder.Size.X.Offset - 48, 0, 0)
+        end -- closes while
+    end) -- closes task.spawn
+end) -- closes task.delay
