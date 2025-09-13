@@ -1,3 +1,5 @@
+--og script link at https://github.com/nexeralt/Die-Of-Death/
+
 -- assets manager
 
 getgenv().dodnhPremium = true
@@ -1663,50 +1665,6 @@ end
 
 local pprice = pcall(GetPrice(1264479709)) or 39
 
-PremiumFeatures:CreateLabel("There's currently 2 ways to get unlock premium features")
-
-PremiumFeatures:CreateLabel("")
-
-PremiumFeatures:CreateLabel("Buy gamepass to unlock premium features! [ Cost "..pprice.." robux ]")
-
-PremiumFeatures:CreateButton({Name = "Open Gamepass Link"; Callback = function()
-if true then
-    Notify("Error!", "Already have gamepass!", 4)
-else
-    OpenLink("https://www.roblox.com/game-pass/1264479709")
-end
-end; })
-
-PremiumFeatures:CreateButton({Name = "Copy Gamepass Link"; Callback = function()
-if true then
-    Notify("Error!", "Arleady have gamepass!", 4)
-else
-    setclipboard(tostring("https://www.roblox.com/game-pass/1264479709"))
-    Notify("Success!", "Copied Link!", 10, true)
-end
-end; })
-
-PremiumFeatures:CreateLabel("or join our roblox group to unlock premium features!")
-
-PremiumFeatures:CreateButton({Name = "Open Group Link"; Callback = function()
-if true then
-    Notify("Error!", "Arleady joined group!", 4)
-else
-    OpenLink("https://www.roblox.com/communities/35649714/my-group-nexer1234#!/about")
-end
-end; })
-
-PremiumFeatures:CreateButton({Name = "Copy Group Link"; Callback = function()
-if true then
-    Notify("Error!", "Arleady joined group!", 4)
-else
-    setclipboard(tostring("https://www.roblox.com/communities/35649714/my-group-nexer1234#!/about"))
-    Notify("Success!", "Copied Link!", 10, true)
-end
-end; })
-
-PremiumFeatures:CreateLabel("")
-
 PremiumFeatures:CreateSection("Killing / Flinging Killers ::>_<::")
 
 PremiumFeatures:CreateLabel("Important note: YOU HAVE TO BE IN ROUND AS CIVILIAN TO KILL KILLER!\nalso it is recommended to activate invisibility before using fling!")
@@ -1717,11 +1675,6 @@ preferedkillingmethod = TableFirstElementToString(Value)
 end; })
 
 PremiumFeatures:CreateButton({Name = "Insta-Kill Killer"; Callback = function()
-	if HavePremium() ~= true then
-		ErrorPremium()
-		return nil
-	end
-
 local function checkifgotflingedlol(hrp)
     local velocity = hrp.Velocity
     local speed = velocity.Magnitude
@@ -1805,10 +1758,6 @@ end)
 end
 
 PremiumFeatures:CreateToggle({Name = "Auto-Kill Killer On Match Start [ BETA ]"; CurrentValue = false; Callback = function(Value)
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 AutoKillKillaKilla = Value
 end; })
 
@@ -1864,19 +1813,10 @@ PremiumFeatures:CreateParagraph({Title = "How To Use [ Server Glitcher ]", Conte
 
 autoresetwhenlms = false
 PremiumFeatures:CreateToggle({Name = "Auto-Rejoin when LMS starts."; CurrentValue = false; Callback = function(Value)
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 autoresetwhenlms = Value
 end; })
 
 PremiumFeatures:CreateButton({Name = "Server Glitcher [ OP + FE ]"; Callback = function()
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
-
 if LP.Character:WaitForChild("HumanoidRootPart").Anchored == true then
 Notify("Error!", "You just spawned! Wait a bit")
 return nil
@@ -1944,10 +1884,6 @@ end; })
 PremiumFeatures:CreateSection("Advanced Anti (｡･∀･)ﾉﾞ")
 
 PremiumFeatures:CreateToggle({Name = "Anti-Stun"; CurrentValue = false; Callback = function(Value)
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 AntiStun = Value
 if AntiStun == true then
 Notify("Success!", "Anti-Stun is now enabled!", 4, true)
@@ -1969,10 +1905,6 @@ end
 PremiumFeatures:CreateSection("Hitbox Extender °^°")
 
 PremiumFeatures:CreateToggle({Name = "Extend Hitbox"; CurrentValue = false; Callback = function(Value)
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 ExtendHitbox = Value
 if ExtendHitbox == true then
 local distance = StudsIntoPower(33)
@@ -2009,10 +1941,6 @@ repeat task.wait() until loadedanim.IsPlaying
 end
 
 PremiumFeatures:CreateButton({Name = "Play Choosen Anim"; Callback = function()
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 if preferedanimat == "laying on floor like uhh mequot" then
 PlayAnim(tostring(139854803244662))
 elseif preferedanimat == "360 SPIN" then
@@ -2072,10 +2000,6 @@ end)
 end
 -- .TimePosition :AdjustSpeed()
 PremiumFeatures:CreateButton({Name = "Stop All Anims"; Callback = function()
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 StopAllAnims()
 Notify("Success!", "Stopped all animations!", 4, true)
 end; })
@@ -2207,10 +2131,6 @@ end; })
 
 noclip_connection = nil
 PremiumFeatures:CreateToggle({Name = "Turn On/Off Invisibility"; CurrentValue = false; Callback = function(Value)
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 if Value == false then
 StopAllAnims()
 InvisibilityMode("off")
@@ -2255,10 +2175,6 @@ PremiumFeatures:CreateSection("Invis Block ԅ(¯﹃¯ԅ)")
 
 invisblockhandler = nil
 PremiumFeatures:CreateToggle({Name = "Turn On/Off Invis-Block"; CurrentValue = false; Callback = function(Value)
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 if Value == false then
 if invisblockhandler then
 invisblockhandler:Disconnect()
@@ -2289,10 +2205,6 @@ end; })
 PremiumFeatures:CreateParagraph({Title = "Info [ All Abilities ]", Content = "You'll get all abilities. ( That's all, but it's pretty OP )"})
 
 PremiumFeatures:CreateButton({Name = "Get All Abilities [kinda OP!!]"; Callback = function()
-if HavePremium() ~= true then
-ErrorPremium()
-return nil
-end
 if TestFireSignal() ~= true then
 ErrorSignal()
 return nil
